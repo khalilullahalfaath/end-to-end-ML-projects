@@ -41,4 +41,4 @@ setup(
 requirements.txt include all of the library needed to run the project. It ends with ``-e .`` to automatically trigger the setup.py to download and install those packages.
 
 
-### 2. 
+### 2. Create project /srs and __init__.py file
