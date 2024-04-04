@@ -51,21 +51,21 @@ The project's source code resides in the ```src``` directory. This directory is 
 .
 ├── ... 
 ├── src  
-│   ├── components  # Reusable modules for data handling and model building
-│   │   ├── __init__.py  # Initialization file (optional, can be empty)
-│   │   ├── data_ingestion.py  # Functions for data acquisition and preprocessing
-│   │   ├── data_transformation.py  # Functions for feature engineering and data preparation
-│   │   ├── model_training.py  # Functions for training and evaluating machine learning models
+│   ├── components  
+│   │   ├── __init__.py 
+│   │   ├── data_ingestion.py  # data acquisition and preprocessing
+│   │   ├── data_transformation.py  # feature engineering and data preparation
+│   │   ├── model_training.py  # training and evaluating machine learning models
 │   │   ├── pipeline  # Pre-defined pipelines for common workflows
-│   │   │   ├── __init__.py  # Initialization file (optional, can be empty)
-│   │   │   ├── predict_pipeline.py  # Functions for creating and executing prediction pipelines
-│   │   │   └── train_pipeline.py  # Functions for creating and executing training pipelines
-│   │   ├── __init__.py  # Initialization file (optional, can be empty)
+│   │   │   ├── __init__.py 
+│   │   │   ├── predict_pipeline.py  # creating and executing prediction pipelines
+│   │   │   └── train_pipeline.py  #creating and executing training pipelines
+│   │   ├── __init__.py 
 │   │   ├── exception.py  # Custom exceptions for project-specific machine learning errors
-│   │   ├── logger.py  # Functions for structured logging during training, evaluation, and deployment
-│   │   └── utils.py  # Helper functions for common tasks (e.g., data validation, file I/O)
-├── venv  # Virtual environment directory (if using virtual environments)
-├── .gitignore  # File specifying files/patterns to exclude from Git version control
+│   │   ├── logger.py  # structured logging during training, evaluation, and deployment
+│   │   └── utils.py  # Helper functions
+├── venv  # Virtual environment directory
+├── .gitignore  
 ├── README.md  # Project documentation (purpose, usage instructions, dependencies)
 ├── requirements.txt  # Text file listing project dependencies for easy installation
 └── setup.py  # Script for packaging and distributing the project
