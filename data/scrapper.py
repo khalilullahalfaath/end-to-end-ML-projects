@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from pathlib import Path
 import os
 import random
+import sys
 
 
 def getData(contents):
@@ -148,6 +149,7 @@ def scraper(url):
         # Close the WebDriver
         driver.quit()
 
+
 def scrape_and_save(url, file_path):
     """
     Scrapes data from a single page, creates a DataFrame, and saves it to a CSV file.
@@ -157,7 +159,11 @@ def scrape_and_save(url, file_path):
         df = pd.DataFrame(data)
         df.to_csv(file_path, index=False, header=False, mode="a", sep=",")
     except:
-        pass
+        if KeyboardInterrupt:
+            # force stop
+            sys.exit(0)
+        else:
+            pass
 
 
 if __name__ == "__main__":
@@ -178,16 +184,49 @@ if __name__ == "__main__":
     first_page = 1
     # set last page index
 
-    end_page = random.randint(10, 20)
-
     results = []
 
-    for page in range(first_page, end_page + 1):
-        base_url = "https://www.rumah123.com/jual/bandung/bandung-kulon/rumah/"
-        # Define the URL
-        url = f"{base_url}?page={page}"
+    regions = [
+        "andir",
+        "astanaanyar",
+        "antapani",
+        "arcamanik",
+        "babakanciparay",
+        "bandung-kulon",
+        "bandung-wetan",
+        "batununggal",
+        "bojongloa-kaler",
+        "bojongloa-kidul",
+        "buah-batu",
+        "cibeunying-kaler",
+        "cibeunying-kidul",
+        "cibiru",
+        "cicendo",
+        "cidadap",
+        "cinambo",
+        "coblong",
+        "gede-bage",
+        "kiaracondong",
+        "lengkong",
+        "mandalajati",
+        "panyileukan",
+        "rancasari",
+        "regol",
+        "sukajadi",
+        "sukasari",
+        "sumurbandung",
+        "ujungberung",
+    ]
 
-        # scrape data and save
-        scrape_and_save(url, file_path)
+    for region in regions:
+        # set random
+        end_page = random.randint(10, 20)
+        for page in range(first_page, end_page + 1):
+            base_url = f"https://www.rumah123.com/jual/bandung/{region}/rumah/"
+            # Define the URL
+            url = f"{base_url}?page={page}"
 
-        print(f"Scraped page {page}. Data appended to {file_path}")
+            # scrape data and save
+            scrape_and_save(url, file_path)
+
+            print(f"Scraped page {page}. Data appended to {file_path}")
