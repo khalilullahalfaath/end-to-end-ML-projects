@@ -1,10 +1,10 @@
 # End-to-end Machine Learning Projects Codebase
 
-This repository will be customized for my upcoming data science projects based on [this tutorial](https://www.youtube.com/watch?v=Rv6UFGNmNZg&list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG&index=2&pp=iAQB). I am using this tutorial to learn how ML projects were used in production.
+This repository will be customized for my upcoming data science projects based on [this tutorial](https://www.youtube.com/watch?v=Rv6UFGNmNZg&list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG&index=2&pp=iAQB). I am using this tutorial to learn how ML projects were used in production. For machine learning steps and flow, I read [this book](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/).
 
 ---
 
-## Steps
+## Preface
 
 ### 1. Set up the github repository
 
@@ -91,3 +91,73 @@ Description:
 - __requirements.txt__ file: Lists the project's external dependencies, enabling easy installation and replication of the project's environment.
 - __setup.py__ file (optional): If the project is intended for distribution or reusability, this script can be used to package it as a Python library.
 <!-- markdownlint-restore -->
+
+### Flow
+
+1. Look at the big picture
+2. Get the data
+3. Explore and visualize the data to gain insights
+4. Prepare the data fro machine learning algorithms
+5. Select a model and train it
+6. Fine-tune the model
+7. Present the solution
+8. Launch, monitor, and maintain the system
+
+#### 1. Look at the big picture
+
+As a data scientist, I'm interested in using house pricing as a problem to develop a predictive model. This model can unlock valuable insights into the real estate market.The data taken by scraping [this web](https://www.rumah123.com/), the code for scraping will be provided. This data is expected to encompass metrics such as location, house features (e.g., number of bedrooms, bathrooms, square footage), price, and land/building area.
+
+##### Frame the problem
+
+The aim of this project is "to construct __a multiple regression model__ that learns from the scraped data. This model should be able to predict the asking price of a house based on the provided features (such as bedrooms, bathrooms, and area) and location."
+
+It is s a supervised learning task and a multiple regression problem because this model will use multiple features to make a prediction. In the other hand, this is a univariate regression problem because I want to predict a single value for each house.
+
+##### Select a Performance Measure
+
+Performance measures for this problem is:
+
+1. RMSE (_root mean square error_)
+$$RMSE = \sqrt{\frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{n}}$$
+
+where:
+
+- $n$ is the number of samples
+- $y_i$ is the actual value for sample $i$
+- $\hat{y}_i$ is the predicted value for sample $i$
+
+2. If outlier is expected, we should also consider MAE (_mean absolute error_)
+$$MAE = \frac{\sum_{i=1}^{n} |y_i - \hat{y}_i|}{n}$$
+
+where:
+
+- $n$ is the number of samples
+- $y_i$ is the actual value for sample $i$
+- $\hat{y}_i$ is the predicted value for sample $i$
+
+##### Check the assumptions
+
+- Some features need to be transformed, such as the house pricing and the area which are in the data represented as a string.
+- Some value are missing so we need to do something
+
+##### Summary
+
+- __Goal__: Develop a model to predict house asking prices based on scraped data.
+- __Data__:
+  - Scraped from a website (legality and ethics to be considered).
+  - Includes location, house features (bedrooms, bathrooms, area), price (string), and land/building area (string).
+  - Missing values require attention (imputation or removal).
+- __Model__:
+  - Multiple regression due to multiple features used for prediction.
+- __Performance__:
+  - RMSE evaluates prediction accuracy.
+  - MAE might be considered for potential outliers.
+- __Data Preprocessing__:
+  - Transform price and area from strings to numbers.
+  - Address missing values.
+- __Additional Considerations__:
+  - Explore feature engineering for better model performance.
+  - Be aware of potential biases in scraped data and how to address them.
+- __Outcome__: A robust model to estimate house prices based on available features.
+
+#### 2. Look at the big picture
