@@ -160,4 +160,12 @@ where:
   - Be aware of potential biases in scraped data and how to address them.
 - __Outcome__: A robust model to estimate house prices based on available features.
 
-#### 2. Look at the big picture
+#### 2. Get the data
+
+The data we used on this project is a scraped data from website <www.rumah123.com>. After completing the scraping process, we then cleaning the data as seems on <notebooks/cleaning.ipynb>
+
+#### 3. Explore and visualize the data to gain insights
+
+Then we visualize the data. For the full exploration and visualization. I've
+
+
